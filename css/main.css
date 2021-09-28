@@ -65,9 +65,7 @@ body {
     display: flex;
     flex-direction: column;
 
-    min-height: 99vh;
-
-    border-bottom: 8px solid #c92a2a;
+    min-height: 100vh;
 }
 
 main {
@@ -96,6 +94,8 @@ footer {
     gap: 24px;
 
     padding: 24px;
+
+    border-bottom: 8px solid #c92a2a;
 }
 
 footer a:link, footer a:visited {
@@ -109,6 +109,11 @@ footer a:link, footer a:visited {
     align-items: center;
 
     gap: 24px;
+}
+
+.redes-container a {
+    width: 50px;
+    height: 50px;
 }
 
 .first-section {
