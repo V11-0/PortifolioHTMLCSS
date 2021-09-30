@@ -50,9 +50,11 @@ small, .text-small {font-size: 0.75rem;}
 
 Color System:
 
-main: Indigo 6 - #4c6ef5 - rgb(76, 110, 245) 
-accent: Red 6 - #fa5252 - rgb(250, 82, 82)
-gray: 
+main: Indigo
+accent: Red
+
+Colors used from
+https://yeun.github.io/open-color/
 
 */
 
@@ -61,6 +63,7 @@ White space scale (px)
     2, 4, 8, 12, 16, 24, 32, 48, 64, 80, 96, 128, 192, 256
 */
 
+/* Body is flex for the footer to stay at the end */
 body {
     display: flex;
     flex-direction: column;
@@ -68,6 +71,7 @@ body {
     min-height: 100vh;
 }
 
+/* main grows, so the footer will be at the end of page */
 main {
     display: block;
     flex: 1 0 auto;
@@ -78,13 +82,61 @@ main section {
 }
 
 main section article {
-    margin-left: auto;
-    margin-right: auto;
-
-    margin-bottom: 128px;
+    margin-bottom: 64px;
 }
 
-footer {
+/* header */
+#main-header {
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-around;    
+    align-items: center;
+    
+    background-image: linear-gradient(280deg, #364fc7, #3b5bdb);
+    color: white;
+
+    padding: 12px;
+}
+
+
+/* Navegação do header */
+.nav-container {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 80px;
+}
+
+.nav-container a:link, .nav-container a:visited {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+
+    text-decoration: unset;
+    color: #ff8787; /* Red 4 */
+
+    text-transform: uppercase;
+    border-radius: 24px;
+
+    background-color: rgba(0, 0, 0, 0.3);
+
+    font-family: 'Roboto';
+    font-weight: 500;
+
+    padding: 8px 20px;
+}
+
+.nav-container a:hover {
+    background-color: #4c6ef5a3;
+    box-shadow: 2px 2px 7px #343a40;
+}
+
+
+/* footer */
+#main-footer {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -100,10 +152,11 @@ footer {
     border-bottom: 8px solid #c92a2a;
 }
 
-footer a:link, footer a:visited {
+#main-footer a:link, footer a:visited {
     color: #c92a2a; /* Red 9 */
 }
 
+/* footer icons */
 .redes-container {
     display: flex;
     flex-wrap: wrap;
@@ -118,90 +171,74 @@ footer a:link, footer a:visited {
     height: 50px;
 }
 
-.section-flex {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-}
 
-.section-grid {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-
-    grid-column-gap: 16px;
-    grid-row-gap: 32px;
-}
-
+/* First section of content */
 .first-section {
     margin-top: 0px;
     background-color: #edf2ff;
 }
 
-.second-section {
-    background-color: #fff5f5;
+.first-section a:link, .first-section a:visited {
+    text-decoration: unset;
+    
+    font-weight: 600;
+    color: #364fc7;
 }
 
-.card-tech {
+.article-paragraph {
     display: flex;
-    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
 
-    padding: 8px 16px;
-
-    border-radius: 20px;
-    background-color: #ffffff;
-
-    width: 192px;
-}
-
-.header-container {
-    display: flex;
     flex-wrap: wrap;
 
-    justify-content: space-around;    
-    align-items: center;
-    
-    background-image: linear-gradient(280deg, #364fc7, #3b5bdb);
-    color: white;
+    column-gap: 32px;
+    row-gap: 16px;
 
-    padding: 12px;
+    margin-bottom: 48px;
 }
 
-.nav-container {
+.icon-paragraphs {
+    color: #364fc7;
+}
+
+.section-about {
     display: flex;
-
     justify-content: space-between;
-
-    gap: 80px;
 }
 
-.nav-container a:link, .nav-container a:visited {
-    text-decoration: unset;
-    color: #ff8787; /* Red 4 */
-
-    text-transform: uppercase;
-    border-radius: 24px;
-
-    background-color: rgba(0, 0, 0, 0.3);
-
-    font-family: 'Roboto';
-    font-weight: 500;
-
-    padding: 8px 24px;
-}
-
-.nav-container a:hover {
-    background-color: #4c6ef5a3;
-}
-
+/* cards of technlogies page */
 .cards-container {
     display: flex;
     justify-content: flex-start;
 
     gap: 1rem;
+    row-gap: 1.2rem;
 
     flex-wrap: wrap;
+}
+
+.card-tech {
+    display: flex;
+    flex-direction: column;
+    
+    gap: 8px;
+
+    padding: 8px 16px;
+
+    border-radius: 16px;
+    background-color: #f8f9fa;
+
+    width: 128px;
+}
+
+.card-tech:hover {
+    box-shadow: 5px 5px 10px #ced4da;
+}
+
+/* Generic rules */
+.no-bottom-margin {
+    margin-bottom: 0;
 }
 
 /* Animacoes */
@@ -214,22 +251,20 @@ footer a:link, footer a:visited {
     }
 }
 
-.article-first-animation {
+/* Animações da tela de tecnologias */
+.article-title-animation {
     animation: 0.8s fade-in;
-}
-
-.grid-row-title-animation {
-    animation: 0.8s fade-in;
-    animation-delay: 1s;
+    animation-delay: 0.2s;
     animation-fill-mode: forwards;
 }
 
-.card-animation {
-    animation: 1s fade-in;
-    animation-delay: 2s;
+.card-row-animation {
+    animation: 0.8s fade-in;
+    animation-delay: 1.2s;
     animation-fill-mode: forwards;
 }
 
+/* Os components animados iniciam com opacidade 0 */
 .opacity-0 {
     opacity: 0;
 }
